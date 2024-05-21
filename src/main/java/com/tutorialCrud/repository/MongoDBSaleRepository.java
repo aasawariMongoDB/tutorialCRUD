@@ -36,6 +36,12 @@ public class MongoDBSaleRepository implements SalesRepository {
     void init() {
         saleCollection = mongoclient.getDatabase("sample_supplies").getCollection("sales", Sales.class);
     }
+    @Override
+    public Sales save(Sales Sales) {
+        Sales.setId(new ObjectId());
+        saleCollection.insertOne(Sales);
+        return Sales;
+    }
 
     @Override
     public List<Sales> findAll() {

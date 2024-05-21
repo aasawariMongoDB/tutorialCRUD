@@ -7,6 +7,7 @@ import java.util.List;
 
 public interface SalesRepository {
 
+    Sales save(Sales sales);
     List<Sales> findAll();
     Sales findOne(String id);
     Sales update(Sales sale);

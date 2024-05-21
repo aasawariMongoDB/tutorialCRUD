@@ -75,4 +75,9 @@ public class SalesServiceImpl implements SalesService {
     public List<BucketsDTO> findTotalSpend(){
         return salesRepository.findTotalSpend();
     }
+
+    @Override
+    public SalesDTO save(SalesDTO salesDTO) {
+        return new SalesDTO(salesRepository.save(salesDTO.toSales()));
+    }
 }
